@@ -1,11 +1,16 @@
 const mongoose =  require ('mongoose')
 
-const signUpTemplate= new mongoose.Schema({
-    fullName: { type: String, required: true },
-    username:{ type: String, required: true },
-    email: { type: String, required: true },
-    password:{ type: String, required: true },
+const userSchema = new mongoose.Schema({
+    firstName : String,
+    lastName : String,
+    email : {
+        type: String,
+        required :true,
+        unique : true,
+    },
+    password : String,
+    repassword : String,
     date:{ type: Date, default: Date.now}
 })
 
-module.exports = mongoose.model('mytable', signUpTemplate)
+module.exports = mongoose.model("UserModel",userSchema)

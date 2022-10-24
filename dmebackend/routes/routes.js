@@ -36,6 +36,24 @@ router.post("/register", (req,res)=> {
     })*/
 })
 
+app.post("/login",(req,res)=>{
+    console.log(req.body)
+    const {email,password} = req.body
+    UserModel.findOne({email : email},(err,user)=>{
+            if(user){
+                if(password == user.password){
+                    res.send({message : "Login SuccessFull",user})
+                }
+                else{
+                    res.send({message : "Password didn't match"})
+                }
+            }
+            else{
+                res.send({message : "This email id is not register"})
+            }
+    })
+})
+
 
 
 module.exports = router

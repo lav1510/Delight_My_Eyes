@@ -9,7 +9,6 @@ const userSchema = new mongoose.Schema({
         unique : true,
     },
     password : String,
-    repassword : String,
     date:{ type: Date, default: Date.now}
 })
 

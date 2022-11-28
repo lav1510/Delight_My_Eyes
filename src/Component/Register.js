@@ -29,7 +29,7 @@ const handleSubmit = async(e)=>{
     const {firstName,lastName,email,password,repassword} = user
     if(firstName && lastName && email && password){
         if(password === repassword){
-            await axios.post("http://localhost:8080/register",user)
+            await axios.post("http://localhost:4000/app/register",user)
             .then((res) => {
                 alert(res.data.message)
                 navigate("/login")
@@ -68,7 +68,7 @@ const handleSubmit = async(e)=>{
 
             <button className="btn" onClick={handleSubmit}>Register</button>
 
-            <button className="btn" onClick={()=>navigate("/login")}>login</button>
+            <button className="btn" onClick={()=>navigate("/login")}>Login</button>
         </form>
     </div>
   )

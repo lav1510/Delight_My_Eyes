@@ -23,11 +23,11 @@ export const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8080/login", user)
+        axios.post("http://localhost:4000/app/login", user)
             .then((res) => {
                 alert(res.data.message)
                 setUserData(res.data.user)
-                navigate("/  ")
+                navigate("/app")
             })
     }
 

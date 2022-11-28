@@ -35,8 +35,22 @@ article h1 {
     box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
     border-radius: 10px;
 }
+
+#cont_home{
+  background-color: #fff;
+  max-width: 700px;
+  max-height: 700px;
+  padding: 30px 20px;
+  width: 100%;
+  width: 700px;
+  box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  text-align: center;
+}
+
 .container-home{
     text-align: center;
+    
 }
 form{
     display: flex;
@@ -53,11 +67,11 @@ form input{
     border: 1px solid #000; 
 }
 form input:hover{
-    border-color: #001d3d;
+    border-color: #7724bb;
     border-radius: 2px;
 }
 .btn{
-    background-color: #001d3d;
+    background-color: #7724bb;
     padding: 5px 15px;
     color:#fff;
     font-size: 18px;
@@ -68,7 +82,7 @@ form input:hover{
 
 }
 .btn:hover{
-    background-color: #023047;
+    background-color: #240247;
     cursor: pointer;
 }
 .btn-container{

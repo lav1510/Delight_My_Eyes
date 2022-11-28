@@ -27,7 +27,7 @@ export const Login = () => {
             .then((res) => {
                 alert(res.data.message)
                 setUserData(res.data.user)
-                navigate("/app")
+                navigate("/")
             })
     }
 

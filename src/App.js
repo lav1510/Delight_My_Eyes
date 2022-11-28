@@ -7,12 +7,15 @@ import "./Component/style.css"
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import data from './ContextApi';
 import { useState } from 'react';
+import Navbar from "./Component/Navbar";
 
 function App() {
   const [userdata,setUserData] = useState({})
   
   return (
+    
     <div className="App">
+      <Navbar />
       <data.Provider value={{userdata,setUserData}}>
         <Router>
           <Routes>

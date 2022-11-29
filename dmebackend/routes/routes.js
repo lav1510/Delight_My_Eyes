@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const UserModel = require('../models/SignUpModels')
+const TrailerModel = require('../models/TrailerModels')
 const bcrypt = require('bcrypt')
 
 router.post("/register", async(req,res)=> {
@@ -56,6 +57,38 @@ router.post("/login", async(req,res)=>{
             
             }
 });
+
+router.get("/trailer", async (req, res) => {
+	const posts = await TrailerModel.find()
+	res.send(posts)
+});
+
+
+router.post("/trailer", async (req, res) => {
+
+    console.log(req.body) 
+    const {url, title, genres, type} = req.body;
+    console.log(title);
+
+    TrailerModel.findOne({title: title},(err,trailer)=>{
+        if(trailer){
+            res.send({message : "This trailer id already in Server."})
+        }
+        else{
+            const trailer = new TrailerModel({
+                url,
+                title,
+                genres,
+                type
+            })
+            trailer.save();
+            res.send({message : "Added a New Trailer Successfully"})
+        }
+
+        })
+
+        });
+
 
 
 

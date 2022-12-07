@@ -3,6 +3,7 @@ const router = express.Router()
 const UserModel = require('../models/SignUpModels')
 const TrailerModel = require('../models/TrailerModels')
 const bcrypt = require('bcrypt')
+var getYouTubeID = require('get-youtube-id');
 
 router.post("/register", async(req,res)=> {
     
@@ -22,7 +23,7 @@ router.post("/register", async(req,res)=> {
                     firstName,
                     lastName,
                     email,
-                    password:securePassword
+                    password:securePassword,
                 })
                 user.save();
                 res.send({message : "Successfull Register"})
@@ -46,7 +47,7 @@ router.post("/login", async(req,res)=>{
                 // check user password with hashed password stored in the database
       const validPassword = await bcrypt.compare(body.password, user.password);
                 if(validPassword){
-                    res.send({message : "Login SuccessFull",user})
+                    res.send({message : "Successfully logged in",user})
                 }
                 else{
                     res.send({message : "Password didn't match"})
@@ -58,9 +59,49 @@ router.post("/login", async(req,res)=>{
             }
 });
 
+router.post("/fav", async(req,res)=>{
+    const body = req.body;
+    if(req.body.fav != "") {
+        const user = await UserModel.findOneAndUpdate(
+            {email : body.email},
+            {
+            $addToSet: { //add to set insead of push resolved dubplicated problem
+                fav: req.body.fav
+            },
+            new: true
+            }
+        )
+    }
+      res.send({message : "Updated favourite list."})
+   
+           
+});
+
+router.get("/userfav", async (req, res) => {
+    const emaill = req.query.email;
+	let trailer = [] 
+    const user = await UserModel.findOne({email : emaill});
+    if(user){
+        
+         let len = Object.keys(user.fav).length;
+         for(let i=0; i<len; i++)
+        {
+            trailer[i]  = await TrailerModel.findOne({url : user.fav[i]})
+            
+        }
+
+        //trailer.data = JSON.stringify(trailer.data)
+        res.send({message : len, trailer})
+    }
+      else{
+        res.send("") //nu are fav
+    
+    }
+});
+
 router.get("/trailer", async (req, res) => {
-	const posts = await TrailerModel.find()
-	res.send(posts)
+	const trailer = await TrailerModel.aggregate([{ $sample: { size: 1 } }])
+	res.send(trailer[0])
 });
 
 

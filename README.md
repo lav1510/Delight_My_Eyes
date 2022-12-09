@@ -1,70 +1,46 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Delight My Eyes
 
-## Available Scripts
+Ever wondered what Movie/TV Show should you watch tonight? I certanly did.
 
-In the project directory, you can run:
+The aplication is used to **generate a random Movie/TV Show trailer**.
+For logged in users the trailer can be added o a favourites list which can be seen later on.
 
-### `npm start`
+For the admin, after logging in, he can add a new trailer in the database.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Delight My Eyes is a college project. It started the loggin/registration part with a fork from : https://github.com/IsAmitprajapati/Login-Register---MERN-Stack-MongoDB-express-React-js-Nodejs---2022.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Demo Video
 
-### `npm test`
+[![Here is the Demo from YouTube](http://i3.ytimg.com/vi/YJps5Qsh7nA/hqdefault.jpg)](https://youtu.be/YJps5Qsh7nA)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Main Technologies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For the **frontend** : 
+[React](https://reactjs.org/); [MUI materials](https://mui.com/); [Bootstrap](https://getbootstrap.com/); [LocalStorage](https://blog.bitsrc.io/how-to-use-localstorage-in-javascript-an-easy-guide-91aad566e4de)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+       
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+In frontend, I used [**axios**](https://axios-http.com/docs/intro) to call the backend.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+For the **backend** : [MongoDB](https://www.mongodb.com/home);
+[Cors](https://www.npmjs.com/package/cors);
+[Express](https://expressjs.com/);
+[Nodemon](https://www.npmjs.com/package/nodemon);
+[Bcrypt](https://www.npmjs.com/package/bcrypt);
+## How To Use
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+# Clone this repository
+$ git clone https://github.com/lav1510/Delight_My_Eyes
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
 
-## Learn More
+## How to run
+After changing the director in a terminal to the dmebackend type: **npm run start** to start the server and conect the database.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+When the main director from this repo is open in terminal, type: **npm start**; the application will open.

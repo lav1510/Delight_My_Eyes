@@ -28,17 +28,23 @@ const handleSubmit = async(e)=>{
         console.log(user)
     const {firstName,lastName,email,password,repassword} = user
     if(firstName && lastName && email && password){
-        if(password === repassword){
-            await axios.post("http://localhost:4000/app/register",user)
-            .then((res) => {
-                alert(res.data.message)
-                navigate("/login")
+        if(email.indexOf("@")>0 && (email.indexOf(".com")>0 || email.indexOf(".ro")>0))
+        {
+            if(password === repassword){
+                await axios.post("http://localhost:4000/app/register",user)
+                .then((res) => {
+                    alert(res.data.message)
+                    navigate("/login")
 
-            })
+                })
 
+            }
+            else{
+                alert("Check Your Password")
+            }
         }
         else{
-            alert("check Your Password")
+            alert("Check Your Email")
         }
     }
     else{

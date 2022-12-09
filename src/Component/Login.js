@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 import data from '../ContextApi'
 import { useNavigate } from 'react-router-dom'
@@ -8,7 +8,13 @@ export const Login = () => {
         email: "",
         password: ""
     })
-    const {setUserData} = useContext(data)
+
+    useEffect(() => {
+        // storing input name
+        localStorage.setItem("user", JSON.stringify(user));
+      }, [user]);
+
+    const {userdata, setUserData} = useContext(data)
     const navigate = useNavigate()
 
     const handleChange = (e) => {
@@ -27,7 +33,15 @@ export const Login = () => {
             .then((res) => {
                 alert(res.data.message)
                 setUserData(res.data.user)
-                navigate("/")
+                localStorage.setItem('userr', res.data.user.email)
+                
+                console.log(userdata)
+                if(res.data.user.isAdmin === true){
+                    navigate("/admin")
+                }
+                else{
+                    navigate("/")
+                }
             })
     }
 

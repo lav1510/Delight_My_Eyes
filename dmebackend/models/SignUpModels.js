@@ -9,6 +9,8 @@ const userSchema = new mongoose.Schema({
         unique : true,
     },
     password : String,
+    fav : [String], //lista nume trailer favorit
+    isAdmin: {type: Boolean, default:false},
     date:{ type: Date, default: Date.now}
 })
 

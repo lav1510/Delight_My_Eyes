@@ -10,15 +10,17 @@ export default function Navbar() {
         <div
           className="navigation-menu">
           <ul>
+          
             <li>
-              <a href="/">Home</a>
+              <a  id='logo' href="/">Home</a>
             </li>
             <li>
-              <a href="/Login">Login</a>
+              <a href="/login">Login</a>
             </li>
             <li>
-              <a href="/Register">Register</a>
+              <a href="/register">Register</a>
             </li>
+            
           </ul>
         </div>
       </nav>
